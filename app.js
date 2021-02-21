@@ -23,10 +23,8 @@ app.use(express.static("uploads"));
 //start app
 const port = process.env.PORT || 3000;
 
-let imgArr = {};
 
-
-app.post("/",cors(), async (req, res) => {
+app.post("/", async (req, res) => {
   try {
     if (!req.files) {
       res.send({
@@ -61,7 +59,7 @@ app.post("/",cors(), async (req, res) => {
 });
 
 
-app.get("/",cors(), function (req, res, next) {
+app.get("/", function (req, res, next) {
   try {
     res.sendFile(path.join(__dirname + "/uploads/" + imgArr.name)); //path to last file
     fileUpload.FileArray;
