@@ -28,11 +28,6 @@ const port = process.env.PORT || 3000;
 
 let imgArr = {};
 
-const corsOptions = {
-  origin: 'https://bill-checker-d1256.web.app/',
-
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
 
 app.post("/",cors(), async (req, res) => {
   try {
