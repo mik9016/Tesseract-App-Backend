@@ -15,11 +15,11 @@ app.use(
 );
 
 //add other middleware
-const corsOptions = {
-  origin: 'https://bill-checker-d1256.web.app/',
-  optionsSuccessStatus: 200 // For legacy browser support
-}
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: 'https://bill-checker-d1256.web.app/',
+//   optionsSuccessStatus: 200 // For legacy browser support
+// }
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("uploads"));
