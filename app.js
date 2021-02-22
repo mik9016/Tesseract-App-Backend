@@ -29,7 +29,7 @@ const port = process.env.PORT || 3000;
 console.log('strona dziala')
 
 
-app.post('/picture',async (req, res) => {
+app.post('/',async (req, res) => {
   try {
     if (!req.files) {
       res.send({
@@ -72,7 +72,7 @@ app.get('/', function (req, res, next) {
       fs.unlink(path.join(__dirname + "/uploads/" + imgArr.name), () => {
         console.log("file removed");
       });
-    },4000);
+    },10000);
   } catch (err) {
     res.send(err);
   }
