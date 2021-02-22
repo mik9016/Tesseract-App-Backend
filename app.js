@@ -15,7 +15,11 @@ app.use(
 );
 
 //add other middleware
-// app.use(cors());
+const corsOptions = {
+  origin: 'https://bill-checker-d1256.web.app/',
+  optionsSuccessStatus: 200 // For legacy browser support
+}
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("uploads"));
@@ -23,11 +27,11 @@ app.use(express.static("uploads"));
 //start app
 const port = process.env.PORT || 3000;
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); 
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*"); 
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 
 app.post('/',async (req, res) => {
