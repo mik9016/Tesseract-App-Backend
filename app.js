@@ -29,7 +29,7 @@ const port = process.env.PORT || 3000;
 console.log('strona dziala')
 
 
-app.post('*',async (req, res) => {
+app.post('/',async (req, res) => {
   try {
     if (!req.files) {
       res.send({
@@ -64,7 +64,7 @@ app.post('*',async (req, res) => {
 });
 
 
-app.get('*', function (req, res, next) {
+app.get('/', function (req, res, next) {
   try {
     res.sendFile(path.join(__dirname + "/uploads/" + imgArr.name)); //path to last file
     fileUpload.FileArray;
