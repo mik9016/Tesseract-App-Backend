@@ -26,10 +26,11 @@ app.use(express.static("uploads"));
 
 //start app
 const port = process.env.PORT || 3000;
+console.log('strona dziala')
+// app.get('/cos', (req,res,next)=>{
 
-app.get('/', (req,res,next)=>{
-  <h1>Witamy na stronie</h1>
-})
+//   res.send(<h1>Witamy na stronie</h1>
+// })
 
 // app.post('/',async (req, res) => {
 //   try {
