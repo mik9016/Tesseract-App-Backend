@@ -29,7 +29,7 @@ const port = process.env.PORT || 3000;
 console.log('strona dziala')
 
 
-app.post('/',async (req, res) => {
+app.post('/picture',async (req, res) => {
   try {
     if (!req.files) {
       res.send({
