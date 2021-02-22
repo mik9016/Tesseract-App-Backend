@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("uploads"));
 
 //start app
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); 
@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 });
 
 
-app.post("/", async (req, res) => {
+app.post('/',async (req, res) => {
   try {
     if (!req.files) {
       res.send({
@@ -65,7 +65,7 @@ app.post("/", async (req, res) => {
 });
 
 
-app.get("/", function (req, res, next) {
+app.get('/', function (req, res, next) {
   try {
     res.sendFile(path.join(__dirname + "/uploads/" + imgArr.name)); //path to last file
     fileUpload.FileArray;
