@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
+const { ok } = require("assert");
 const app = express();
 
 // enable files upload
@@ -74,10 +75,12 @@ console.log('strona dziala')
 //   }
 // });
 app.post('/',()=>{
-  res.send(console.log('odpowiedź z serwera POST req'))
+  res.send({status: 'ok',
+            message: 'message from POST req'
+        })
 })
 app.get('/', (req,res,next) =>{
-    res.send(console.log('odpowiedź z serwera GET req'));
+    res.send({status: 'OK',message:'message from GET req'});
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}.`));
