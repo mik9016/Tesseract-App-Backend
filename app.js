@@ -23,7 +23,7 @@ app.use(express.static("uploads"));
 
 //start app
 const port = process.env.PORT || 3000;
-console.log('strona dziala')
+
 
 
 // app.post('/', async (req, res) => {
@@ -74,7 +74,7 @@ console.log('strona dziala')
 //     res.send(err);
 //   }
 // });
-app.post('/',()=>{
+app.post('/',(req,res)=>{
   res.send({status: 'ok',
             message: 'message from POST req'
         })
