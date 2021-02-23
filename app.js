@@ -5,7 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
-const { ok } = require("assert");
+// const { ok } = require("assert");
 const app = express();
 
 // enable files upload
@@ -76,8 +76,5 @@ app.get('/', function (req, res, next) {
   }
 });
 
-// app.get('/', (req,res,next) =>{
-//     res.send({status: 'OK',message:'message from GET req'});
-// })
 
 app.listen(port, () => console.log(`App is listening on port ${port}.`));
