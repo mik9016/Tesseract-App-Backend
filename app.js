@@ -26,72 +26,41 @@ const port = process.env.PORT || 3000;
 
 
 
-// app.post('/', async (req, res) => {
-//   try {
-//     if (!req.files) {
-//       res.send({
-//         status: false,
-//         message: "No file uploaded",
-//       });
-//     } else {
-//       //Use the name of the input field (i.e. "picture") to retrieve the uploaded file
-//       let picture = req.files.picture;
+app.post('/', async (req, res) => {
+  try {
+    if (!req.files) {
+      res.send({
+        status: false,
+        message: "No file uploaded",
+      });
+    } else {
+      //Use the name of the input field (i.e. "picture") to retrieve the uploaded file
+      let picture = req.files.picture;
 
-//       //Use the mv() method to place the file in upload directory (i.e. "uploads")
-//       picture.mv("./uploads/" + picture.name);
+      //Use the mv() method to place the file in upload directory (i.e. "uploads")
+      picture.mv("./uploads/" + picture.name);
 
-//       //add filename to imgArr object
-//       Object.assign(imgArr, picture);
-//       // console.log(imgArr.name);
+      //add filename to imgArr object
+      Object.assign(imgArr, picture);
+      // console.log(imgArr.name);
 
-//       //send response
-//       res.send({
-//         status: true,
-//         message: "File is uploaded",
-//         data: {
-//           name: picture.name,
-//           mimetype: picture.mimetype,
-//           size: picture.size,
-//         },
-//       });
-//     }
-//   } catch (err) {
-//     res.status(500).send(err);
-//   }
-// });
-
-app.post('/',(req,res)=>{
-
-  if (!req.files) {
-    res.send({
-      status: false,
-      message: "No file uploaded",
-    });
-  } else {
-    //Use the name of the input field (i.e. "picture") to retrieve the uploaded file
-    let picture = req.files.picture;
-
-    //Use the mv() method to place the file in upload directory (i.e. "uploads")
-    picture.mv("./uploads/" + picture.name);
-
-    //add filename to imgArr object
-    Object.assign(imgArr, picture);
-    // console.log(imgArr.name);
-
-    //send response
-    res.send({
-      status: true,
-      message: "File is uploaded",
-      data: {
-        name: picture.name,
-        mimetype: picture.mimetype,
-        size: picture.size,
-      }
-    })
-
+      //send response
+      res.send({
+        status: true,
+        message: "File is uploaded",
+        data: {
+          name: picture.name,
+          mimetype: picture.mimetype,
+          size: picture.size,
+        },
+      });
+    }
+  } catch (err) {
+    res.status(500).send(err);
   }
-
 });
+
+
 
 app.get('/', function (req, res, next) {
   try {
